@@ -6,31 +6,36 @@ describe ('desc', function(){
 
     it('Test', async function(){
         let driver = await new Builder().forBrowser('chrome').build();
+        driver.manage().window().maximize();
         async function waitTitle(){
-            const titles = await driver.findElements(By.css('.td-content>h1'));
+            const titles = await driver.findElements(By.css('.CDt4Ke .Rn3Z1b'));
             return !!titles.length;
         }
 
-        await driver.get("https://www.selenium.dev/documentation/webdriver/");
+        await driver.get("https://chromedriver.chromium.org/home");
         await driver.wait(waitTitle, 5000);
-        const title1 = await driver.findElement(By.css('.td-content>h1'));
+        const title1 = await driver.findElement(By.css('.CDt4Ke .Rn3Z1b'));
         let text = await title1.getText();
-        expect (text).toBe('WebDriver')
+        expect (text).toBe('ChromeDriver')
+        console.log("Passed!");
       
-        // const headerItems = await driver.findElements(By.css('.navbar-collapse .nav-link'));
+        // const headerItems = await driver.findElements(By.css('.plFg0c .VsJjtf'));
         // await headerItems[2].click();
-        const headerItem = await driver.findElement(By.css('.breadcrumb-item a[href = "/documentation/"]'));
-        await headerItem.click();
+
+        const headerItem = await driver.findElement(By.css('#WDxLfe > ul > li:nth-child(3) div'));
+        if (headerItem.isEnabled()){
+                headerItem.click();
+        }
 
         await driver.wait(waitTitle, 5000);
-        const title2 = await driver.findElement(By.css('.td-content>h1'));
+        const title2 = await driver.findElement(By.css('.tyJCtd .Rn3Z1b'));
       
-        // await driver.executeScript('arguments[0].style.backgroundColor = "red"', title2);
-        // await driver.sleep(5000);
+        await driver.executeScript('arguments[0].style.backgroundColor = "red"', title2);
+        await driver.sleep(5000);
         
         text = await title2.getText();
         console.log(text);
-        expect(text).toBe('The Selenium Browser Automation Project');
+        expect(text).toBe('Chrome Extensions');
         console.log("Finish!");
               
         await driver.quit();
