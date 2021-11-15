@@ -1,0 +1,26 @@
+{
+  "name": "selenium_driver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olgatsylko/selenium_driver.git"
+  },
+  "author": "Olga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olgatsylko/selenium_driver/issues"
+  },
+  "homepage": "https://github.com/olgatsylko/selenium_driver#readme",
+  "dependencies": {
+    "jasmine": "^3.10.0",
+    "selenium-webdriver": "^4.0.0"
+  },
+  "devDependencies": {
+    "chromedriver": "^95.0.0"
+  }
+}
